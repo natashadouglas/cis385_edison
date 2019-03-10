@@ -63,7 +63,7 @@ app.post('/bid1', function(req, res){
         if (err) { console.log("Cannot connect to the DB" + err); }
     client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"', function (err,res) {
         done();
-    }
+        
         if (err) {
             console.log(err.stack)
         } else {

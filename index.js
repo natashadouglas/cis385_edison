@@ -43,8 +43,6 @@ app.post('/bid1', function(req, res){
     pool.connect(function (err,client,done) {
         if (err) { console.log("Cannot connect to the DB" + err); }
 
-
-
 // create parameterized query, insert row into database with indexing of form values
     const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 
@@ -61,7 +59,11 @@ app.post('/bid1', function(req, res){
     });
 });
 // count the number of bids for item
+    pool.connect(function (err,client,done) {
+        if (err) { console.log("Cannot connect to the DB" + err); }
     client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"', function (err,res) {
+        done();
+    }
         if (err) {
             console.log(err.stack)
         } else {
@@ -69,17 +71,24 @@ app.post('/bid1', function(req, res){
             const response = res
         }
     });
+});
     const itemCount = response.rows[0];
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {
-        client.query ('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)', function (err,res) {
+        pool.connect(function (err,client,done) {
             if (err) {
-                console.log(err.stack)
-            } else {
-                console.log(res.rows[0])
-                const response = res
+                console.log("Cannot connect to the DB" + err);
             }
+            client.query('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)', function (err, res) {
+                done();
+                if (err) {
+                    console.log(err.stack)
+                } else {
+                    console.log(res.rows[0])
+                    const response = res
+                }
+            });
         });
         const highBid1 = response.rows[0].bid;
         const winningEmail1 = response.rows[0].email;

@@ -1,13 +1,17 @@
 // modified from Getting Started on Heroku with Node.js web page
 // connect utilizing generated pool
-const { Pool } = require('pg');
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
-});
+//const { Pool } = require('pg');
+//const pool = new Pool({
+    //connectionString: process.env.DATABASE_URL,
+    //ssl: true
+//});
+const pg = require('pg');
 const express = require('express');
-const app = express()
+const app = express();
 
+const config = {connectionString: process.env.DATABASE_URL, ssl: true
+};
+const pool = new pg.Pool(config);
 // set up app
 app.set('port', (process.env.PORT || 5000))
 app.set('views', __dirname + '/views')
@@ -43,7 +47,7 @@ app.post('/bid1', function(req, res){
 // generate array from form values; run insert query
 // callback
     const values = [req.body.email1, req.body.bid1];
-    client.query(text, values, (err, res) => {
+    client.query(text, values, function (err, res) {
         if (err) {
             console.log(err.stack)
         } else {
@@ -52,7 +56,7 @@ app.post('/bid1', function(req, res){
     });
 
 // count the number of bids for item
-    client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"', (err,res) => {
+    client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"', function (err,res) {
         if (err) {
             console.log(err.stack)
         } else {
@@ -64,7 +68,7 @@ app.post('/bid1', function(req, res){
 
    // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {
-       client.query ('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)', (err,res) => {
+       client.query ('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)', function (err,res) {
            if (err) {
                console.log(err.stack)
            } else {

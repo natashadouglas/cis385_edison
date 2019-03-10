@@ -36,7 +36,7 @@ app.post('/', function (req, res) {
 })
 
 // modified from Scaling an Express.js Application with Memcache on Heroku
-app.post('/bid1', function(req, res){
+app.post('/bid1', function(req, returns){
     console.log(req.body);
     // connect to database
    // const client = pool.connect();
@@ -63,7 +63,7 @@ app.post('/bid1', function(req, res){
         if (err) { console.log("Cannot connect to the DB" + err); }
     client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"', function (err,res) {
         done();
-        
+
         if (err) {
             console.log(err.stack)
         } else {
@@ -72,7 +72,7 @@ app.post('/bid1', function(req, res){
         }
     });
 });
-    const itemCount = response.rows[0];
+    const itemCount = res.rows[0];
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {
@@ -80,7 +80,7 @@ app.post('/bid1', function(req, res){
             if (err) {
                 console.log("Cannot connect to the DB" + err);
             }
-            client.query('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)', function (err, res) {
+            client.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)", function (err, res) {
                 done();
                 if (err) {
                     console.log(err.stack)
@@ -90,11 +90,11 @@ app.post('/bid1', function(req, res){
                 }
             });
         });
-        const highBid1 = response.rows[0].bid;
-        const winningEmail1 = response.rows[0].email;
+        const highBid1 = res.rows[0].bid;
+        const winningEmail1 = res.rows[0].email;
 
         // display winning bid and associated email address on index.ejs
-        res.render ('index', {highBid1:highBid1, winningEmail1:winningEmail1});
+        returns.render ('index', {highBid1:highBid1, winningEmail1:winningEmail1});
     } else {
         const bidText = "Place another bid on Social Contribution";
         const URL="https://socialcontribution.herokuapp.com/";

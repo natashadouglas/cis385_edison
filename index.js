@@ -50,12 +50,26 @@ app.post('/bid1', function(req, res){
     });
 
 // count the number of bids for item
-   const response = client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"');
+    client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"', (err,res) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            console.log(res.rows[0])
+            const response = res
+        }
+    });
    const itemCount = response.rows[0];
 
    // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {
-        const response = client.query ('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)');
+       client.query ('SELECT * FROM bids WHERE item = "item1" AND bid = (SELECT MAX (bid) FROM bids)', (err,res) => {
+           if (err) {
+               console.log(err.stack)
+           } else {
+               console.log(res.rows[0])
+               const response = res
+           }
+       });
         const highBid1 = response.rows[0].bid;
         const winningEmail1 = response.rows[0].email;
 

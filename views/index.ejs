@@ -43,6 +43,14 @@
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
         <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
       </div>
+      // if more more than three bids reached, print winning bid and email address
+      // escape html and evaluate variables in encapsulated code
+      <% if (highBid1) { %>
+        Bidding Closed
+        Auction Winner: <%= highBid1 %>
+        Winning Bid: <%= winningEmail1 %>
+      <%} %>
+
       <form id="item1" action="/bid1" method="post" class="form-inline">Bid:
         <input id="bid1" name="bid1" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
         <input id="email1" name="email1" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>

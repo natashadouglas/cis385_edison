@@ -46,11 +46,11 @@ app.post('/bid1', function(req, res){
 
 
 // create parameterized query, insert row into database with indexing of form values
-    const text = 'INSERT INTO bids(item, email, bid) VALUES("item1", $1, $2)';
+    const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 
 // generate array from form values; run insert query
 // callback
-    const values = [req.body.email1, req.body.bid1];
+    const values = ["item1", req.body.email1, req.body.bid1];
     client.query(text, values, function (err, res) {
         done();
         if (err) {

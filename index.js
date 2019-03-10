@@ -1,9 +1,10 @@
 // modified from Getting Started on Heroku with Node.js web page
 // connect utilizing generated pool
 const { Pool } = require('pg');
-const pool = new pg.Pool();
-//    connectionString: process.env.DATABASE_URL,
-//    ssl: true });
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});
 const express = require('express');
 const app = express()
 

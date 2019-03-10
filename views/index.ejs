@@ -1,44 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <title>Social Contribution || Digital Donor Auction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+    .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
 <body>
 
-<h2>Bid Forms</h2>
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Social Contribution</h1>
+    <p>Digital Donor Auction</p>
+  </div>
+</div>
 
-<h3>Item 1</h3>
-<form id="item1" action="/bid1" method="post">
-  Email:<br>
-  <input type="email" id="email1" name="email1" placeholder="myemail@webhost.com">
-  <br>
-  Bid:<br>
-  <input type="number" id="bid1" name="bid1">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+      <form id="item1" action="/bid1" method="post" class="form-inline">Bid:
+        <input id="bid1" name="bid1" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
+        <input id="email1" name="email1" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
+        <button type="submit" form="item1" class="btn btn-danger">Place Bid</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+      <form id="item2" action="/bid2" method="post" class="form-inline">Bid:
+        <input id="bid2" name="bid2" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
+        <input id="email2" name="email2" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
+        <button type="submit" form="item2" class="btn btn-danger">Place Bid</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+      <form id="item3" action="/bid3" method="post" class="form-inline">Bid:
+        <input id="bid3" name="bid3" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
+        <input id="email3" name="email3" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
+        <button type="submit" form="item3" class="btn btn-danger">Place Bid</button>
+      </form>
+      </form>
+    </div>
+  </div>
+</div><br>
 
-<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+      <form id="item4" action="/bid4" method="post" class="form-inline">Bid:
+        <input id="bid4" name="bid4" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
+        <input id="email4" name="email4" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
+        <button type="submit" form="item4" class="btn btn-danger">Place Bid</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+      <form id="item5" action="/bid5" method="post" class="form-inline">Bid:
+        <input id="bid5" name="bid5" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
+        <input id="email5" name="email5" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
+        <button type="submit" form="item5" class="btn btn-danger">Place Bid</button>
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+      <form id="item6" action="/bid6" method="post" class="form-inline">Bid:
+        <input id="bid6" name="bid6" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
+        <input id="email6" name="email6" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
+        <button type="submit" form="item6" class="btn btn-danger">Place Bid</button>
+      </form>
+    </div>
+  </div>
+</div><br><br>
 
-<h3>Item 2</h3>
-<form id="item2">
-  Email:<br>
-  <input type="email" id="email2" name="email2" placeholder="myemail@webhost.com">
-  <br>
-  Bid:<br>
-  <input type="number" id="bid2" name="bid2">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>
+</footer>
 
-<hr>
-
-<h3>Item 3</h3>
-<form id="item3">
-  Email:<br>
-  <input type="email" id="email3" name="email3" placeholder="myemail@webhost.com">
-  <br>
-  Bid:<br>
-  <input type="number" id="bid3" name="bid3">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
 </body>
 </html>

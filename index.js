@@ -29,5 +29,5 @@ app.post('/', function (req, res) {
 // modified from Scaling an Express.js Application with Memcache on Heroku
 app.post('/bid1', function(req, res){
    console.log(req.body);
-   res.send("received your request!");
+   res.send("Bid received, thank you! Submit another bid: https://socialcontribution.herokuapp.com/");
 });

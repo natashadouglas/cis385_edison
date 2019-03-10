@@ -69,11 +69,10 @@ app.post('/bid1', function(req, returns){
         } else {
             console.log(res.rows[0])
             const response = res
-            const itemCount = res.rows[0]
         }
     });
 });
-   // const itemCount = res.rows[0];
+   const itemCount = res.rows[0];
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {

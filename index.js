@@ -39,8 +39,15 @@ app.post('/bid1', function(req, res){
     const text = 'INSERT INTO bids(item, email, bid) VALUES("item1", $1, $2)';
 
 // generate array from form values; run insert query
+// callback
     const values = [req.body.email1, req.body.bid1];
-    client.query(text, values );
+    client.query(text, values, (err, res) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            console.log(res.rows[0])
+        }
+    });
 
 // count the number of bids for item
    const response = client.query ('SELECT COUNT (*) FROM bids WHERE item = "item1"');

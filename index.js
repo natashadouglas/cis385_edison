@@ -1,5 +1,8 @@
-// modified from Getting Started on Heroku with Node.js web page 
-
+// modified from Getting Started on Heroku with Node.js web page
+const { Pool } = require('pg');
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true });
 const express = require('express');
 const app = express()
 
@@ -29,37 +32,38 @@ app.post('/', function (req, res) {
 // modified from Scaling an Express.js Application with Memcache on Heroku
 app.post('/bid1', function(req, res){
    console.log(req.body);
-   const bidText = "Submit another bid on Social Contribution";
+   const bidText = "Place another bid on Social Contribution";
    const URL="https://socialcontribution.herokuapp.com/";
    res.send("Bid received, thank you! " + bidText.link(URL));
 });
 app.post('/bid2', function(req, res){
     console.log(req.body);
-    const bidText = "Submit another bid on Social Contribution";
+    const bidText = "Place another bid on Social Contribution";
     const URL="https://socialcontribution.herokuapp.com/";
     res.send("Bid received, thank you! " + bidText.link(URL));
 });
 app.post('/bid3', function(req, res){
     console.log(req.body);
-    const bidText = "Submit another bid on Social Contribution";
+    const bidText = "Place another bid on Social Contribution";
     const URL="https://socialcontribution.herokuapp.com/";
     res.send("Bid received, thank you! " + bidText.link(URL));
 });
 app.post('/bid4', function(req, res){
     console.log(req.body);
-    const bidText = "Submit another bid on Social Contribution";
+    const bidText = "Place another bid on Social Contribution";
     const URL="https://socialcontribution.herokuapp.com/";
     res.send("Bid received, thank you! " + bidText.link(URL));
 });
 app.post('/bid5', function(req, res){
     console.log(req.body);
-    const bidText = "Submit another bid on Social Contribution";
+    const bidText = "Place another bid on Social Contribution";
     const URL="https://socialcontribution.herokuapp.com/";
     res.send("Bid received, thank you! " + bidText.link(URL));
 });
 app.post('/bid6', function(req, res){
     console.log(req.body);
-    const bidText = "Submit another bid on Social Contribution";
+    const bidText = "Place another bid on Social Contribution";
     const URL="https://socialcontribution.herokuapp.com/";
     res.send("Bid received, thank you! " + bidText.link(URL));
 });
+

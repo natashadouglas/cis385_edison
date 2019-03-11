@@ -72,7 +72,7 @@ app.post('/bid1', function(req, returns){
         }
     });
 });
-   const itemCount = res.rows[0];
+  // const itemCount = res.rows[0];
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {

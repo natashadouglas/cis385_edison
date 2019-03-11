@@ -61,7 +61,7 @@ app.post('/bid1', function(req, returns){
 // count the number of bids for item
     pool.connect(function (err,client,done) {
         if (err) { console.log("Cannot connect to the DB" + err); }
-    client.query ("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err,res) {
+ const result = await client.query ("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err,res) {
         done();
 
         if (err) {
@@ -72,7 +72,8 @@ app.post('/bid1', function(req, returns){
         }
     });
 });
-  // const itemCount = res.rows[0];
+   const itemCount = result.rows[0];
+
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {

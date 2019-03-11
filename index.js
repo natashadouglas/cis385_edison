@@ -36,56 +36,56 @@ app.post('/', function (req, res) {
 })
 
 // modified from Scaling an Express.js Application with Memcache on Heroku
-app.post('/bid1', function(req, returns){
+app.post('/bid1', function(req, returns) {
     console.log(req.body);
     // connect to database
-   // const client = pool.connect();
-    pool.connect(function (err,client,done) {
-        if (err) { console.log("Cannot connect to the DB" + err); }
+    // const client = pool.connect();
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Cannot connect to the DB" + err);
+        }
 
 // create parameterized query, insert row into database with indexing of form values
-    const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
+        const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 
 // generate array from form values; run insert query
 // callback
-    const values = ["item1", req.body.email1, req.body.bid1];
-    client.query(text, values, function (err, res) {
-        done();
-        if (err) {
-            console.log(err.stack)
-        } else {
-            console.log(res.rows[0])
-        }
+        const values = ["item1", req.body.email1, req.body.bid1];
+        client.query(text, values, function (err, res) {
+            done();
+            if (err) {
+                console.log(err.stack)
+            } else {
+                console.log(res.rows[0])
+            }
+        });
     });
-});
+
 // count the number of bids for item
 
-        const result = pool.connect(function (err, client, done) {
+    pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("Cannot connect to the DB" + err);
+        }
+        client.query("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err, res) {
+            done();
+
             if (err) {
-                console.log("Cannot connect to the DB" + err);
+                console.log(err.stack)
+            } else {
+                console.log(res.rows[0]);
+                global.counter = res.rows[0];
+                return res;
             }
-            const resultant = client.query("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err, res) {
-                done();
-
-                if (err) {
-                    console.log(err.stack)
-                } else {
-                    console.log(res.rows[0]);
-                    return res;
-                }
-            });
-            console.log('resultant!!!');
-            console.log(resultant);
-            return resultant
-
         });
+    });
 
-   const itemCount = result.rows[0];
+
+   const itemCount = global.counter;
 
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
-    if (itemCount >= 3 ) {
-        const result = function(callback) {
+   if (itemCount >= 3 ) {
             pool.connect(function (err, client, done) {
                 if (err) {
                     console.log("Cannot connect to the DB" + err);
@@ -96,11 +96,11 @@ app.post('/bid1', function(req, returns){
                         console.log(err.stack)
                     } else {
                         console.log(res.rows[0])
-                        const response = res
+                        global.response = res
                     }
                 });
             });
-        };
+        const result = global.response;
         const highBid1 = result.rows[0].bid;
         const winningEmail1 = result.rows[0].email;
 
@@ -111,7 +111,7 @@ app.post('/bid1', function(req, returns){
         const URL="https://socialcontribution.herokuapp.com/";
         res.send("Bid received, thank you! " + bidText.link(URL));
 
-    }
+   }
 
 });
 app.post('/bid2', function(req, res){

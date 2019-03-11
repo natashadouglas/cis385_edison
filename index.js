@@ -59,40 +59,46 @@ app.post('/bid1', function(req, returns){
     });
 });
 // count the number of bids for item
-    pool.connect(function (err,client,done) {
-        if (err) { console.log("Cannot connect to the DB" + err); }
- client.query ("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err,res) {
-        done();
+    const result = function(callback) {
+        pool.connect(function (err, client, done) {
+            if (err) {
+                console.log("Cannot connect to the DB" + err);
+            }
+            client.query("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err, res) {
+                done();
 
-        if (err) {
-            console.log(err.stack)
-        } else {
-            console.log(res.rows[0])
-            const response = res
-        }
-    });
-});
+                if (err) {
+                    console.log(err.stack)
+                } else {
+                    console.log(res.rows[0])
+                    callback(res)
+                }
+            });
+        });
+    };
    const itemCount = result.rows[0];
 
 
     // if the bid count is greater than or equal to three, declare auction winner; query winner
     if (itemCount >= 3 ) {
-        pool.connect(function (err,client,done) {
-            if (err) {
-                console.log("Cannot connect to the DB" + err);
-            }
-            client.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)", function (err, res) {
-                done();
+        const result = function(callback) {
+            pool.connect(function (err, client, done) {
                 if (err) {
-                    console.log(err.stack)
-                } else {
-                    console.log(res.rows[0])
-                    const response = res
+                    console.log("Cannot connect to the DB" + err);
                 }
+                client.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)", function (err, res) {
+                    done();
+                    if (err) {
+                        console.log(err.stack)
+                    } else {
+                        console.log(res.rows[0])
+                        const response = res
+                    }
+                });
             });
-        });
-        const highBid1 = res.rows[0].bid;
-        const winningEmail1 = res.rows[0].email;
+        };
+        const highBid1 = result.rows[0].bid;
+        const winningEmail1 = result.rows[0].email;
 
         // display winning bid and associated email address on index.ejs
         returns.render ('index', {highBid1:highBid1, winningEmail1:winningEmail1});

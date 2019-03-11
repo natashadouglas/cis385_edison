@@ -109,7 +109,7 @@ app.post('/bid1', function(req, returns) {
     } else {
         const bidText = "Place another bid on Social Contribution";
         const URL="https://socialcontribution.herokuapp.com/";
-        res.send("Bid received, thank you! " + bidText.link(URL));
+        returns.send("Bid received, thank you! " + bidText.link(URL));
 
    }
 

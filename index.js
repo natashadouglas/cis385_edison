@@ -5,7 +5,6 @@
 //connectionString: process.env.DATABASE_URL,
 //ssl: true
 //});
-app.use( express.static( "public" ) );
 const pg = require('pg');
 const express = require('express');
 const app = express();

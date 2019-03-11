@@ -70,11 +70,13 @@ app.post('/bid1', function(req, returns){
                 if (err) {
                     console.log(err.stack)
                 } else {
-                    console.log(res.rows[0])
+                    console.log(res.rows[0]);
                     return res;
                 }
             });
+            console.log(resultant);
             return resultant
+
         });
 
    const itemCount = result.rows[0];

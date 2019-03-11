@@ -74,7 +74,7 @@ app.post('/bid1', function(req, returns){
                     return res;
                 }
             });
-            console.log(resultant);
+            console.log('resultant!!!');
             return resultant
 
         });

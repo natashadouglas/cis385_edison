@@ -61,7 +61,7 @@ app.post('/bid1', function(req, returns){
 // count the number of bids for item
     pool.connect(function (err,client,done) {
         if (err) { console.log("Cannot connect to the DB" + err); }
- const result = await client.query ("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err,res) {
+ client.query ("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err,res) {
         done();
 
         if (err) {

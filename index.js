@@ -59,23 +59,24 @@ app.post('/bid1', function(req, returns){
     });
 });
 // count the number of bids for item
-    const result = function(callback) {
-        pool.connect(function (err, client, done) {
+
+        const result = pool.connect(function (err, client, done) {
             if (err) {
                 console.log("Cannot connect to the DB" + err);
             }
-            client.query("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err, res) {
+            const resultant = client.query("SELECT COUNT (*) FROM bids WHERE item = 'item1'", function (err, res) {
                 done();
 
                 if (err) {
                     console.log(err.stack)
                 } else {
                     console.log(res.rows[0])
-                    callback(res)
+                    return res;
                 }
             });
+            return resultant
         });
-    };
+
    const itemCount = result.rows[0];
 
 

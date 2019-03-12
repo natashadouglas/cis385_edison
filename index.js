@@ -31,27 +31,27 @@ pool.connect((err, client) => {
 });
 
 app.get('/', async(req, res) => {
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -90,27 +90,27 @@ app.post('/bid1', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -141,27 +141,27 @@ app.post('/bid2', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -192,27 +192,27 @@ app.post('/bid3', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -243,27 +243,27 @@ app.post('/bid4', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -294,27 +294,27 @@ app.post('/bid5', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -345,27 +345,27 @@ app.post('/bid6', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 

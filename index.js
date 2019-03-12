@@ -55,8 +55,8 @@ app.get('/', async(req, res) => {
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
-    return res.redirect('/');
-    //return res.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    //return res.redirect('/');
+    return res.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
 });
 
 // run app

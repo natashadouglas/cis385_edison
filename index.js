@@ -68,7 +68,12 @@ app.post('/bid1', function(req, returns) {
             }
         });
     });
-    returns.render ('index');
+    const data = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const highBid1 = data.rows[0].bid;
+    const winningEmail1 = data.rows[0].email;
+    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1});
+
+    //returns.render ('index');
 /* // count the number of bids for item
     pool.connect(function (err, client, done) {
         if (err) {

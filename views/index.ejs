@@ -43,7 +43,7 @@
         <div class="panel-body"><img src="hawaii.jpg" class="img-responsive" style="width:100%" alt="hawaii"></div>
         <div class="panel-footer">Relax in Hawaii</div>
       </div>
-      <!-- if more more than three bids reached, print winning bid and email address
+      <!-- print current high bidder and bid
        escape html and evaluate variables in encapsulated code -->
       <% if (locals.highBid1) { %>
         Current High Bidder <br>
@@ -63,6 +63,14 @@
         <div class="panel-body"><img src="goose-island.jpg" class="img-responsive" style="width:100%" alt="goose-island"></div>
         <div class="panel-footer">All access tour with beer tasting and 3-course dinner</div>
       </div>
+      <!-- print current high bidder and bid
+      escape html and evaluate variables in encapsulated code -->
+      <% if (locals.highBid2) { %>
+        Current High Bidder <br>
+        Bidder: <%= winningEmail2 %> <br>
+        Bid: &#36;<%= highBid2 %> <br>
+      <%} %>
+
       <form id="item2" action="/bid2" method="post" class="form-inline">Bid:
         <input id="bid2" name="bid2" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
         <input id="email2" name="email2" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
@@ -75,6 +83,13 @@
         <div class="panel-body"><img src="go_ape.jpg" class="img-responsive" style="width:100%" alt="go ape zip line"></div>
         <div class="panel-footer">Thrilling 2-3 hour outdoor experience featuring zip lines, tarzan swings, and more!</div>
       </div>
+      <!-- print current high bidder and bid
+      escape html and evaluate variables in encapsulated code -->
+      <% if (locals.highBid3) { %>
+        Current High Bidder <br>
+        Bidder: <%= winningEmail3 %> <br>
+        Bid: &#36;<%= highBid3 %> <br>
+      <%} %>
       <form id="item3" action="/bid3" method="post" class="form-inline">Bid:
         <input id="bid3" name="bid3" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
         <input id="email3" name="email3" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
@@ -93,6 +108,13 @@
         <div class="panel-body"><img src="hamilton-in-chicago.jpg" class="img-responsive" style="width:100%"; alt="hamilton"></div>
         <div class="panel-footer">FRONT ROW tickets for 2 at CIBC Theater and Dinner at Grillroom Chophouse & Wine Bar</div>
       </div>
+      <!-- print current high bidder and bid
+      escape html and evaluate variables in encapsulated code -->
+      <% if (locals.highBid4) { %>
+        Current High Bidder <br>
+        Bidder: <%= winningEmail4 %> <br>
+        Bid: &#36;<%= highBid4 %> <br>
+      <%} %>
       <form id="item4" action="/bid4" method="post" class="form-inline">Bid:
         <input id="bid4" name="bid4" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
         <input id="email4" name="email4" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
@@ -105,6 +127,13 @@
         <div class="panel-body"><img src="shedd_aquarium.jpg" class="img-responsive" style="width:100%" alt="shedd aquarium"></div>
         <div class="panel-footer">Includes admission to the Aquarium, Wild Reef, Abbott Oceanarium, Special Exhibits, and Stingray Touch</div>
       </div>
+      <!-- print current high bidder and bid
+escape html and evaluate variables in encapsulated code -->
+      <% if (locals.highBid5) { %>
+        Current High Bidder <br>
+        Bidder: <%= winningEmail5 %> <br>
+        Bid: &#36;<%= highBid5 %> <br>
+      <%} %>
       <form id="item5" action="/bid5" method="post" class="form-inline">Bid:
         <input id="bid5" name="bid5" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
         <input id="email5" name="email5" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
@@ -117,6 +146,13 @@
         <div class="panel-body"><img src="WestSideStory.jpg" class="img-responsive" style="width:100%" alt="west side story"></div>
         <div class="panel-footer">Broadway Musical Masterpiece at Lyric Opera</div>
       </div>
+      <!-- print current high bidder and bid
+      escape html and evaluate variables in encapsulated code -->
+      <% if (locals.highBid6) { %>
+        Current High Bidder <br>
+        Bidder: <%= winningEmail6 %> <br>
+        Bid: &#36;<%= highBid6 %> <br>
+      <%} %>
       <form id="item6" action="/bid6" method="post" class="form-inline">Bid:
         <input id="bid6" name="bid6" type="text" class="form-control" size="3" placeholder="Bid"><br><br>Email:
         <input id="email6" name="email6" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>

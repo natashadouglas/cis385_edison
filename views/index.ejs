@@ -46,9 +46,9 @@
       <!-- if more more than three bids reached, print winning bid and email address
        escape html and evaluate variables in encapsulated code -->
       <% if (locals.highBid1) { %>
-        Bidding Closed
-        Auction Winner: <%= highBid1 %>
-        Winning Bid: <%= winningEmail1 %>
+        Current High Bidder <br>
+        Bidder: <%= winningEmail1 %> <br>
+        Bid: <%= highBid1 %> <br>
       <%} %>
 
       <form id="item1" action="/bid1" method="post" class="form-inline">Bid:

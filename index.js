@@ -232,7 +232,7 @@ app.post('/bid4', async (req, returns) => {
         const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 // generate array from form values; run insert query
 // callback
-        const values = ["item4", req.body.email1, req.body.bid1];
+        const values = ["item4", req.body.email4, req.body.bid4];
         client.query(text, values, function (err, res) {
             done();
             if (err) {
@@ -283,7 +283,7 @@ app.post('/bid5', async (req, returns) => {
         const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 // generate array from form values; run insert query
 // callback
-        const values = ["item5", req.body.email1, req.body.bid1];
+        const values = ["item5", req.body.email5, req.body.bid5];
         client.query(text, values, function (err, res) {
             done();
             if (err) {
@@ -334,7 +334,7 @@ app.post('/bid6', async (req, returns) => {
         const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 // generate array from form values; run insert query
 // callback
-        const values = ["item6", req.body.email1, req.body.bid1];
+        const values = ["item6", req.body.email6, req.body.bid6];
         client.query(text, values, function (err, res) {
             done();
             if (err) {

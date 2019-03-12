@@ -46,7 +46,7 @@ app.post('/', function (req, res) {
     res.render('index')
 })
 // modified from Scaling an Express.js Application with Memcache on Heroku
-app.post('/bid1', function(req, returns) {
+app.post('/bid1', async (req, returns) => {
     console.log(req.body);
     // connect to database
     // const client = pool.connect();

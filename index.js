@@ -53,6 +53,7 @@ app.post('/bid1', function(req, returns) {
             }
         });
     });
+    returns.render ('index');
 /* // count the number of bids for item
     pool.connect(function (err, client, done) {
         if (err) {

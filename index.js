@@ -19,9 +19,24 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 // get index.ejs page from server, rendering index
-app.get('/', function (req, res) {
-    res.render('index')
+
+// declare variable to hold database connection
+let pgClient;
+
+pool.connect((err, client) => {
+    if(err) {
+        console.log(err);
+    }
+    pgClient = client;
 });
+
+app.get('/', async(req, res) => {
+    const data = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const highBid1 = data.rows[0].bid;
+    const winningEmail1 = data.rows[0].email;
+    return res.render('index', {highBid1:highBid1, winningEmail1:winningEmail1});
+});
+
 // run app
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'))

@@ -22,10 +22,6 @@ app.use(express.json());
 app.get('/', function (req, res) {
     res.render('index')
 });
-//get bidResults.ejs from server, rendering page
-app.get('/', function (req, res) {
-    res.render('bidResults');
-    
 // run app
 app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'))

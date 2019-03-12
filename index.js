@@ -53,7 +53,7 @@ app.post('/bid1', function(req, returns) {
             }
         });
     });
-// count the number of bids for item
+/* // count the number of bids for item
     pool.connect(function (err, client, done) {
         if (err) {
             console.log("Cannot connect to the DB" + err);
@@ -96,8 +96,9 @@ app.post('/bid1', function(req, returns) {
         const bidText = "Place another bid on Social Contribution";
         const URL="https://socialcontribution.herokuapp.com/";
         returns.send("Bid received, thank you! " + bidText.link(URL));
-   }
+   }*/
 });
+/*
 app.post('/bid2', function(req, res){
     console.log(req.body);
     const bidText = "Place another bid on Social Contribution";
@@ -127,4 +128,4 @@ app.post('/bid6', function(req, res){
     const bidText = "Place another bid on Social Contribution";
     const URL="https://socialcontribution.herokuapp.com/";
     res.send("Bid received, thank you! " + bidText.link(URL));
-});
+});*/

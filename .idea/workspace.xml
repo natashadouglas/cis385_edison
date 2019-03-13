@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4715">
-              <caret line="205" column="14" lean-forward="true" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
+            <state relative-caret-position="4485">
+              <caret line="195" column="6" lean-forward="true" selection-start-line="195" selection-start-column="6" selection-end-line="195" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#1900#1906#0#HTML" expanded="true" />
@@ -114,7 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="401" />
     <option name="y" value="69" />
     <option name="width" value="736" />
@@ -179,10 +179,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72509000" />
+    <option name="totallyTimeSpent" value="72795000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -289,8 +289,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4715">
-          <caret line="205" column="14" lean-forward="true" selection-start-line="205" selection-start-column="14" selection-end-line="205" selection-end-column="14" />
+        <state relative-caret-position="4485">
+          <caret line="195" column="6" lean-forward="true" selection-start-line="195" selection-start-column="6" selection-end-line="195" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#1900#1906#0#HTML" expanded="true" />

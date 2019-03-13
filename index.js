@@ -31,27 +31,27 @@ pool.connect((err, client) => {
 });
 
 app.get('/', async(req, res) => {
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item1' ) ORDER BY id");
     const highBid1 = data1.rows[0].bid;
     const winningEmail1 = data1.rows[0].email;
 
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item2' ) ORDER BY id");
     const highBid2 = data2.rows[0].bid;
     const winningEmail2 = data2.rows[0].email;
 
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item3' ) ORDER BY id");
     const highBid3 = data3.rows[0].bid;
     const winningEmail3 = data3.rows[0].email;
 
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item4' ) ORDER BY id");
     const highBid4 = data4.rows[0].bid;
     const winningEmail4 = data4.rows[0].email;
 
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item5' ) ORDER BY id");
     const highBid5 = data5.rows[0].bid;
     const winningEmail5 = data5.rows[0].email;
 
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
+    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids WHERE item = 'item6' ) ORDER BY id");
     const highBid6 = data6.rows[0].bid;
     const winningEmail6 = data6.rows[0].email;
 
@@ -90,31 +90,8 @@ app.post('/bid1', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid1 = data1.rows[0].bid;
-    const winningEmail1 = data1.rows[0].email;
-
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid2 = data2.rows[0].bid;
-    const winningEmail2 = data2.rows[0].email;
-
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid3 = data3.rows[0].bid;
-    const winningEmail3 = data3.rows[0].email;
-
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid4 = data4.rows[0].bid;
-    const winningEmail4 = data4.rows[0].email;
-
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid5 = data5.rows[0].bid;
-    const winningEmail5 = data5.rows[0].email;
-
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid6 = data6.rows[0].bid;
-    const winningEmail6 = data6.rows[0].email;
-
-    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    
+    return returns.redirect('/');
 });
 
 // modified from Scaling an Express.js Application with Memcache on Heroku
@@ -141,31 +118,8 @@ app.post('/bid2', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid1 = data1.rows[0].bid;
-    const winningEmail1 = data1.rows[0].email;
-
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid2 = data2.rows[0].bid;
-    const winningEmail2 = data2.rows[0].email;
-
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid3 = data3.rows[0].bid;
-    const winningEmail3 = data3.rows[0].email;
-
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid4 = data4.rows[0].bid;
-    const winningEmail4 = data4.rows[0].email;
-
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid5 = data5.rows[0].bid;
-    const winningEmail5 = data5.rows[0].email;
-
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid6 = data6.rows[0].bid;
-    const winningEmail6 = data6.rows[0].email;
-
-    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    return returns.redirect('/');
+    
 });
 
 // modified from Scaling an Express.js Application with Memcache on Heroku
@@ -192,31 +146,8 @@ app.post('/bid3', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid1 = data1.rows[0].bid;
-    const winningEmail1 = data1.rows[0].email;
-
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid2 = data2.rows[0].bid;
-    const winningEmail2 = data2.rows[0].email;
-
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid3 = data3.rows[0].bid;
-    const winningEmail3 = data3.rows[0].email;
-
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid4 = data4.rows[0].bid;
-    const winningEmail4 = data4.rows[0].email;
-
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid5 = data5.rows[0].bid;
-    const winningEmail5 = data5.rows[0].email;
-
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid6 = data6.rows[0].bid;
-    const winningEmail6 = data6.rows[0].email;
-
-    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    return returns.redirect('/');
+    
 });
 
 // modified from Scaling an Express.js Application with Memcache on Heroku
@@ -232,7 +163,7 @@ app.post('/bid4', async (req, returns) => {
         const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 // generate array from form values; run insert query
 // callback
-        const values = ["item4", req.body.email1, req.body.bid1];
+        const values = ["item4", req.body.email4, req.body.bid4];
         client.query(text, values, function (err, res) {
             done();
             if (err) {
@@ -243,31 +174,8 @@ app.post('/bid4', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid1 = data1.rows[0].bid;
-    const winningEmail1 = data1.rows[0].email;
-
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid2 = data2.rows[0].bid;
-    const winningEmail2 = data2.rows[0].email;
-
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid3 = data3.rows[0].bid;
-    const winningEmail3 = data3.rows[0].email;
-
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid4 = data4.rows[0].bid;
-    const winningEmail4 = data4.rows[0].email;
-
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid5 = data5.rows[0].bid;
-    const winningEmail5 = data5.rows[0].email;
-
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid6 = data6.rows[0].bid;
-    const winningEmail6 = data6.rows[0].email;
-
-    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    return returns.redirect('/');
+    
 });
 
 // modified from Scaling an Express.js Application with Memcache on Heroku
@@ -283,7 +191,7 @@ app.post('/bid5', async (req, returns) => {
         const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 // generate array from form values; run insert query
 // callback
-        const values = ["item5", req.body.email1, req.body.bid1];
+        const values = ["item5", req.body.email5, req.body.bid5];
         client.query(text, values, function (err, res) {
             done();
             if (err) {
@@ -294,31 +202,8 @@ app.post('/bid5', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid1 = data1.rows[0].bid;
-    const winningEmail1 = data1.rows[0].email;
-
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid2 = data2.rows[0].bid;
-    const winningEmail2 = data2.rows[0].email;
-
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid3 = data3.rows[0].bid;
-    const winningEmail3 = data3.rows[0].email;
-
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid4 = data4.rows[0].bid;
-    const winningEmail4 = data4.rows[0].email;
-
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid5 = data5.rows[0].bid;
-    const winningEmail5 = data5.rows[0].email;
-
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid6 = data6.rows[0].bid;
-    const winningEmail6 = data6.rows[0].email;
-
-    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    return returns.redirect('/');
+   
 });
 
 // modified from Scaling an Express.js Application with Memcache on Heroku.
@@ -334,7 +219,7 @@ app.post('/bid6', async (req, returns) => {
         const text = 'INSERT INTO bids(item, email, bid) VALUES($1, $2, $3)';
 // generate array from form values; run insert query
 // callback
-        const values = ["item6", req.body.email1, req.body.bid1];
+        const values = ["item6", req.body.email6, req.body.bid6];
         client.query(text, values, function (err, res) {
             done();
             if (err) {
@@ -345,31 +230,8 @@ app.post('/bid6', async (req, returns) => {
         });
     });
 
-    const data1 = await pgClient.query("SELECT * FROM bids WHERE item = 'item1' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid1 = data1.rows[0].bid;
-    const winningEmail1 = data1.rows[0].email;
-
-    const data2 = await pgClient.query("SELECT * FROM bids WHERE item = 'item2' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid2 = data2.rows[0].bid;
-    const winningEmail2 = data2.rows[0].email;
-
-    const data3 = await pgClient.query("SELECT * FROM bids WHERE item = 'item3' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid3 = data3.rows[0].bid;
-    const winningEmail3 = data3.rows[0].email;
-
-    const data4 = await pgClient.query("SELECT * FROM bids WHERE item = 'item4' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid4 = data4.rows[0].bid;
-    const winningEmail4 = data4.rows[0].email;
-
-    const data5 = await pgClient.query("SELECT * FROM bids WHERE item = 'item5' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid5 = data5.rows[0].bid;
-    const winningEmail5 = data5.rows[0].email;
-
-    const data6 = await pgClient.query("SELECT * FROM bids WHERE item = 'item6' AND bid = (SELECT MAX (bid) FROM bids)");
-    const highBid6 = data6.rows[0].bid;
-    const winningEmail6 = data6.rows[0].email;
-
-    return returns.render('index', {highBid1:highBid1, winningEmail1:winningEmail1, highBid2:highBid2, winningEmail2:winningEmail2, highBid3:highBid3, winningEmail3:winningEmail3, highBid4:highBid4, winningEmail4:winningEmail4, highBid5:highBid5, winningEmail5:winningEmail5, highBid6:highBid6, winningEmail6:winningEmail6});
+    return returns.redirect('/');
+    
 });
 
     //returns.render ('index');

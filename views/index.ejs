@@ -28,6 +28,7 @@
 
     body {
       font-family: 'Thasadith', sans-serif;
+      font-size: 20px;
     }
 
     .panel-heading {
@@ -46,9 +47,6 @@
     border-color: #6b7a8f;
   }
 
-    .p {
-      font-size: 20px;
-    }
 
 
   </style>
@@ -72,13 +70,13 @@
       </div>
       <!-- print current high bidder and bid
        escape html and evaluate variables in encapsulated code -->
-      <p>
+
       <% if (locals.highBid1) { %>
         Current High Bidder <br>
         Bidder: <%= winningEmail1 %> <br>
         Bid: &nbsp; &#36;<%= highBid1 %> <br><br>
       <%} %>
-      </p>
+
 
       <form id="item1" action="/bid1" method="post" class="form-inline">Bid:
         <input id="bid1" name="bid1" type="text" class="form-control" size="3" placeholder="Bid"><br>Email:
@@ -94,13 +92,13 @@
       </div>
       <!-- print current high bidder and bid
       escape html and evaluate variables in encapsulated code -->
-      <p>
+
       <% if (locals.highBid2) { %>
         Current High Bidder <br>
         Bidder: <%= winningEmail2 %> <br>
         Bid: &nbsp; &#36;<%= highBid2 %> <br><br>
       <%} %>
-      </p>
+
 
       <form id="item2" action="/bid2" method="post" class="form-inline">Bid:
         <input id="bid2" name="bid2" type="text" class="form-control" size="3" placeholder="Bid"><br>Email:
@@ -116,13 +114,13 @@
       </div>
       <!-- print current high bidder and bid
       escape html and evaluate variables in encapsulated code -->
-      <p>
+
       <% if (locals.highBid3) { %>
         Current High Bidder <br>
         Bidder: <%= winningEmail3 %> <br>
         Bid: &nbsp; &#36;<%= highBid3 %> <br><br>
       <%} %>
-      </p>
+
       <form id="item3" action="/bid3" method="post" class="form-inline">Bid:
         <input id="bid3" name="bid3" type="text" class="form-control" size="3" placeholder="Bid"><br>Email:
         <input id="email3" name="email3" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
@@ -162,13 +160,12 @@
       </div>
       <!-- print current high bidder and bid
 escape html and evaluate variables in encapsulated code -->
-      <p>
+
       <% if (locals.highBid5) { %>
         Current High Bidder <br>
         Bidder: <%= winningEmail5 %> <br>
         Bid: &nbsp; &#36;<%= highBid5 %> <br><br>
       <%} %>
-      </p>
       <form id="item5" action="/bid5" method="post" class="form-inline">Bid:
         <input id="bid5" name="bid5" type="text" class="form-control" size="3" placeholder="Bid"><br>Email:
         <input id="email5" name="email5" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
@@ -183,13 +180,13 @@ escape html and evaluate variables in encapsulated code -->
       </div>
       <!-- print current high bidder and bid
       escape html and evaluate variables in encapsulated code -->
-      <p>
+
       <% if (locals.highBid6) { %>
         Current High Bidder <br>
         Bidder: <%= winningEmail6 %> <br>
         Bid: &nbsp; &#36;<%= highBid6 %> <br><br>
       <%} %>
-      </p>
+
       <form id="item6" action="/bid6" method="post" class="form-inline">Bid:
         <input id="bid6" name="bid6" type="text" class="form-control" size="3" placeholder="Bid"><br>Email:
         <input id="email6" name="email6" type="email" class="form-control" size="30" placeholder="Email Address"><br><br>
